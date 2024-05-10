@@ -2,9 +2,7 @@ package com.bodytok.pass.repository.pass;
 
 import com.bodytok.pass.repository.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -12,6 +10,8 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Entity
+@Builder
+@AllArgsConstructor
 @Table(name = "pass")
 public class PassEntity extends BaseEntity {
     @Id
@@ -20,6 +20,7 @@ public class PassEntity extends BaseEntity {
     private Integer packageSeq;
     private String userId;
 
+    @Enumerated(EnumType.STRING)
     private PassStatus status;
     private Integer remainingCount;
 
@@ -27,4 +28,6 @@ public class PassEntity extends BaseEntity {
     private LocalDateTime endedAt;
     private LocalDateTime expiredAt;
 
+    public PassEntity() {
+    }
 }
