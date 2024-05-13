@@ -13,6 +13,17 @@ spring:
       hibernate:
         format_sql: true
 
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      name: sendNotificationBeforeClassJob
+
 logging:
   level:
     org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+
+kakaotalk:
+  host: https://kapi.kakao.com
+  token: Wa9rZ2XNASdFkbU948m7_Lue1_-_pvkO7j4KKcjaAAABj3C172PC3p98Pd5TpQ
