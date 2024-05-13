@@ -13,11 +13,11 @@ public interface PassModelMapper {
     PassModelMapper INSTANCE = Mappers.getMapper(PassModelMapper.class);
 
     //필드명이 같은 건 그대로, 같지 않은 건 명시해서 매핑해줌
-    @Mapping(target = "status", qualifiedByName = "status")
+    @Mapping(target = "status", qualifiedByName = "defaultStatus")
     @Mapping(target = "remainingCount", source = "bulkPassEntity.count")
     PassEntity toPassEntity(BulkPassEntity bulkPassEntity, String userId);
 
-    @Named("status")
+    @Named("defaultStatus")
     default PassStatus status(BulkPassStatus status) {
         return PassStatus.READY;
     }
